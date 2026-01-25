@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -37,9 +37,8 @@ export function Footer() {
         <div className="space-y-4">
             <h3 className="text-accretion font-medium">Connect</h3>
             <div className="flex gap-4">
-                <SocialButton icon={<Instagram className="w-4 h-4"/>} href="#" />
-                <SocialButton icon={<Linkedin className="w-4 h-4"/>} href="#" />
-                <SocialButton icon={<Github className="w-4 h-4"/>} href="#" />
+                <SocialButton icon={<Instagram className="w-4 h-4"/>} href="https://www.instagram.com/ordinateur.hrc" />
+                <SocialButton icon={<Linkedin className="w-4 h-4"/>} href="https://www.linkedin.com/company/ordinateur-hrc" />
             </div>
         </div>
       </div>
@@ -58,3 +57,4 @@ function SocialButton({ icon, href }: { icon: React.ReactNode; href: string }) {
         </Link>
     )
 }
+
