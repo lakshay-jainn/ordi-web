@@ -3,7 +3,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Starfield } from "@/components/ui/Starfield";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import { useState, useMemo } from "react";
 import { Search, Download, Heart, Share2 } from "lucide-react";
 
@@ -121,7 +121,7 @@ const galleryImages = {
   ]
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -132,7 +132,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: {
     opacity: 1,
@@ -141,7 +141,7 @@ const itemVariants = {
   },
 };
 
-const categoryVariants = {
+const categoryVariants: Variants = {
   hidden: { opacity: 0, x: -20 },
   visible: {
     opacity: 1,

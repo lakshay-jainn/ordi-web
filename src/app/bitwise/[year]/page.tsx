@@ -3,7 +3,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Starfield } from "@/components/ui/Starfield";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, Download, Calendar, FileText, Users, ExternalLink } from "lucide-react";
 import { useParams } from "next/navigation";
@@ -18,7 +18,7 @@ const magazineDetails = {
     month: "December 2024",
     issues: 4,
     articles: "45+",
-    contributors: "50+",
+    contributorsCount: "50+",
     pages: "320",
     color: "from-blue-500 to-cyan-500",
     bgColor: "bg-blue-500/10",
@@ -82,7 +82,7 @@ const magazineDetails = {
     month: "December 2023",
     issues: 4,
     articles: "42+",
-    contributors: "48+",
+    contributorsCount: "48+",
     pages: "300",
     color: "from-purple-500 to-pink-500",
     bgColor: "bg-purple-500/10",
@@ -146,7 +146,7 @@ const magazineDetails = {
     month: "December 2022",
     issues: 4,
     articles: "40+",
-    contributors: "45+",
+    contributorsCount: "45+",
     pages: "280",
     color: "from-green-500 to-emerald-500",
     bgColor: "bg-green-500/10",
@@ -210,7 +210,7 @@ const magazineDetails = {
     month: "December 2021",
     issues: 4,
     articles: "38+",
-    contributors: "42+",
+    contributorsCount: "42+",
     pages: "260",
     color: "from-orange-500 to-red-500",
     bgColor: "bg-orange-500/10",
@@ -274,7 +274,7 @@ const magazineDetails = {
     month: "December 2020",
     issues: 4,
     articles: "36+",
-    contributors: "40+",
+    contributorsCount: "40+",
     pages: "240",
     color: "from-rose-500 to-pink-500",
     bgColor: "bg-rose-500/10",
@@ -332,7 +332,7 @@ const magazineDetails = {
   }
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -343,7 +343,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, x: -20 },
   visible: {
     opacity: 1,
