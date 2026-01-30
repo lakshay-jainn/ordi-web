@@ -43,6 +43,8 @@ export default {
       animation: {
         "shimmer-slide": "shimmer-slide 3s ease-in-out infinite",
         "spin-slow": "spin 8s linear infinite",
+        "orbit-slow": "spin 60s linear infinite",
+        "counter-orbit": "counter-spin 60s linear infinite",
         "warp-in": "warp-in 0.8s ease-out forwards",
         "marquee": "marquee 25s linear infinite",
       },
@@ -58,6 +60,10 @@ export default {
         marquee: {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-100%)" },
+        },
+        "counter-spin": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(-360deg)" },
         }
       },
     },

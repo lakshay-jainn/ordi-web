@@ -5,14 +5,12 @@ import { Footer } from "@/components/Footer";
 import { Starfield } from "@/components/ui/Starfield";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import { useState, useMemo } from "react";
-import { Search, Download, Heart, Share2 } from "lucide-react";
-
-
+import { Search, Download, Heart, Share2, Filter } from "lucide-react";
 import { galleryCategories, galleryImages } from "@/config/gallery";
+import { cn } from "@/lib/utils";
 
 function getGalleryCount(category?: string | null): number {
   if (!category) {
-    // Count all images in all categories
     return Object.values(galleryImages).reduce((acc, arr) => acc + arr.length, 0);
   }
   return (galleryImages[category as keyof typeof galleryImages] || []).length;
@@ -30,25 +28,11 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
-    scale: 1,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
-};
-
-const categoryVariants: Variants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.4 },
-  },
-  exit: {
-    opacity: 0,
-    x: 20,
-    transition: { duration: 0.2 },
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -67,105 +51,77 @@ export default function GalleryPage() {
     );
   }, [activeCategory, searchQuery]);
 
-  const activeData = galleryCategories.find((cat) => cat.id === activeCategory);
-
   return (
-    <main className="min-h-screen bg-void text-starlight selection:bg-accretion selection:text-void-dark relative overflow-hidden">
-      <div className="fixed inset-0 z-0 pointer-events-none">
+    <main className="min-h-screen bg-void text-starlight selection:bg-accretion selection:text-void-dark relative">
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-20">
         <Starfield />
       </div>
 
       <Navbar />
 
-      <div className="relative z-10">
-        {/* Header Section */}
-        <section className="min-h-[50vh] flex flex-col items-center justify-center px-4 py-20">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <div className="mb-6 inline-block">
-              <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-starlight/60 text-xs font-medium tracking-wider uppercase">
-                Visual Stories
-              </span>
+      <div className="relative z-10 pt-32 pb-20">
+        
+        {/* HERO SECTION - Matched to Departments/About */}
+        <section className="w-full px-6 mb-16">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-starlight/60 text-xs font-medium tracking-wider uppercase backdrop-blur-md">
+                    Visual Archive
+                  </span>
+                </div>
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tighter mb-6 text-transparent bg-clip-text bg-gradient-to-b from-starlight to-starlight/40">
+                  Gallery
+                </h1>
+                <div className="h-1 w-32 bg-gradient-to-r from-accretion via-accretion/50 to-transparent rounded-full" />
+              </motion.div>
+              <p className="text-starlight/60 text-lg font-light tracking-wide max-w-md md:text-right">
+                Explore moments from our events, workshops, hackathons, and community gatherings.
+              </p>
             </div>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-sans tracking-tighter mb-8 text-transparent bg-clip-text bg-gradient-to-b from-starlight via-starlight to-starlight/40">
-              Gallery
-            </h1>
-            <p className="text-starlight/60 text-lg md:text-xl font-light tracking-wide max-w-2xl mx-auto">
-              Explore moments from our events, workshops, hackathons, and community gatherings.
-            </p>
-          </motion.div>
-        </section>
 
-        {/* Search Bar */}
-        <section className="px-4 pb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-2xl mx-auto"
-          >
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-starlight/40" />
-              <input
-                type="text"
-                placeholder="Search by title or date..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-starlight/40 focus:outline-none focus:border-white/30 focus:bg-white/[0.08] transition-all duration-300"
-              />
+            {/* Controls Bar */}
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6 p-1">
+              {/* Category Filter */}
+              <div className="flex flex-wrap gap-2 w-full lg:w-auto">
+                {galleryCategories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => setActiveCategory(category.id)}
+                    className={cn(
+                      "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border",
+                      activeCategory === category.id
+                        ? "bg-white text-void border-white"
+                        : "bg-white/5 text-starlight/60 border-white/10 hover:bg-white/10 hover:text-starlight"
+                    )}
+                  >
+                    {category.name} <span className="opacity-50 ml-1 text-xs">({getGalleryCount(category.id)})</span>
+                  </button>
+                ))}
+              </div>
+
+               {/* Search */}
+               <div className="relative w-full lg:max-w-sm group">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-starlight/40 group-focus-within:text-accretion transition-colors" />
+                  <input
+                    type="text"
+                    placeholder="Search gallery..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2 bg-white/[0.03] border border-white/10 rounded-full text-sm text-white placeholder:text-starlight/30 focus:outline-none focus:border-accretion/50 focus:bg-white/[0.05] transition-all"
+                  />
+                </div>
             </div>
-          </motion.div>
-        </section>
-
-        {/* Category Filter */}
-        <section className="px-4 pb-16">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-7xl mx-auto"
-          >
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">
-              {galleryCategories.map((category) => (
-                <motion.button
-                  key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`relative p-4 rounded-xl border-2 transition-all duration-300 group overflow-hidden ${
-                    activeCategory === category.id
-                      ? "border-accretion/60 bg-accretion/5 bg-opacity-30"
-                      : "border-white/10 bg-white/[0.02] hover:bg-white/5"
-                  }`}
-                >
-                  {/* Background gradient on active */}
-                  {activeCategory === category.id && (
-                    <motion.div
-                      layoutId="activeCategory"
-                      className="absolute inset-0 bg-gradient-to-r from-accretion to-orange-500 opacity-5"
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
-
-                  <div className="relative z-10">
-                    <p className="text-xs font-bold tracking-wider uppercase mb-1 text-accretion">
-                      {category.label}
-                    </p>
-                    <h3 className="text-sm md:text-base font-bold text-white">{category.name}</h3>
-                    <p className="text-xs text-starlight/50 mt-1">{getGalleryCount(category.id)} photos</p>
-                  </div>
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* Gallery Grid */}
-        <section className="px-4 pb-20">
+        <section className="px-6 pb-20">
           <div className="max-w-7xl mx-auto">
             <motion.div
               key={activeCategory}
@@ -179,54 +135,31 @@ export default function GalleryPage() {
                   <motion.div
                     key={image.id}
                     variants={itemVariants}
-                    className="group relative cursor-pointer h-72 rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300"
+                    className="group relative cursor-pointer aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02] hover:border-white/20 transition-all duration-500"
                     onClick={() => setSelectedImage(image)}
                   >
+                     {/* Hover Overlay */}
+                     <div className="absolute inset-0 bg-void/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-[2px]" />
+
                     {/* Image */}
                     <img
                       src={image.src}
                       alt={image.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
 
-                    {/* Overlay Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
                     {/* Content */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileHover={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute bottom-0 left-0 right-0 p-6 text-white"
-                    >
-                      <h3 className="text-lg font-bold mb-1">{image.title}</h3>
-                      <p className="text-sm text-starlight/70 mb-4">{image.date}</p>
-
-                      {/* Action Buttons */}
-                      <div className="flex gap-2">
-                        <motion.button
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                        >
-                          <Heart className="w-4 h-4" />
-                        </motion.button>
-                        <motion.button
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                        >
-                          <Share2 className="w-4 h-4" />
-                        </motion.button>
-                        <motion.button
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors ml-auto"
-                        >
-                          <Download className="w-4 h-4" />
-                        </motion.button>
+                    <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0">
+                      <p className="text-accretion font-mono text-xs uppercase tracking-wider mb-2">{image.date}</p>
+                      <h3 className="text-xl font-bold text-white mb-4 leading-tight">{image.title}</h3>
+                      
+                      <div className="flex items-center gap-3">
+                         <button className="p-2 rounded-full bg-white/10 hover:bg-white text-white hover:text-void transition-colors">
+                            <Download className="w-4 h-4" />
+                         </button>
+                         <div className="text-xs text-starlight/50 ml-auto font-medium tracking-wide">CLICK TO VIEW</div>
                       </div>
-                    </motion.div>
+                    </div>
                   </motion.div>
                 ))}
               </AnimatePresence>
@@ -237,9 +170,13 @@ export default function GalleryPage() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-center py-20"
+                className="text-center py-32 border border-dashed border-white/10 rounded-3xl"
               >
-                <p className="text-starlight/60 text-lg">No images found for "{searchQuery}"</p>
+                <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Search className="w-6 h-6 text-starlight/40" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">No images found</h3>
+                <p className="text-starlight/60">Try adjusting your search terms</p>
               </motion.div>
             )}
           </div>
@@ -253,82 +190,49 @@ export default function GalleryPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedImage(null)}
-              className="fixed inset-0 z-50 bg-void/80 backdrop-blur-sm flex items-center justify-center p-4"
+              className="fixed inset-0 z-50 bg-void/95 backdrop-blur-xl flex items-center justify-center p-4"
             >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
+              <div
                 onClick={(e) => e.stopPropagation()}
-                className="relative max-w-4xl w-full"
+                className="relative max-w-7xl w-full max-h-[90vh] flex flex-col items-center"
               >
-                <img
+                <motion.img
+                  layoutId={String(selectedImage.id)}
                   src={selectedImage.src}
                   alt={selectedImage.title}
-                  className="w-full rounded-2xl"
+                  className="w-auto h-auto max-h-[85vh] object-contain rounded-xl shadow-2xl shadow-black/50"
                 />
 
-                {/* Close Button */}
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setSelectedImage(null)}
-                  className="absolute top-4 right-4 p-2 rounded-lg bg-void/50 hover:bg-void/70 transition-colors backdrop-blur-sm"
-                >
-                  <svg
-                    className="w-6 h-6 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </motion.button>
-
-                {/* Image Info */}
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mt-6 text-center"
+                  className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-6 px-8 py-4 bg-void/80 border border-white/10 backdrop-blur-md rounded-full"
                 >
-                  <h3 className="text-2xl font-bold text-white mb-2">{selectedImage.title}</h3>
-                  <p className="text-starlight/60">{selectedImage.date}</p>
+                   <div className="text-left mr-4 border-r border-white/10 pr-6">
+                      <h3 className="text-white font-bold whitespace-nowrap">{selectedImage.title}</h3>
+                      <p className="text-accretion text-xs font-mono">{selectedImage.date}</p>
+                   </div>
+                   
+                   <div className="flex items-center gap-2">
+                      <button className="p-3 rounded-full hover:bg-white/10 transition-colors text-starlight hover:text-white" title="Download">
+                         <Download className="w-5 h-5" />
+                      </button>
+                      <button className="p-3 rounded-full hover:bg-white/10 transition-colors text-starlight hover:text-white" title="Share">
+                         <Share2 className="w-5 h-5" />
+                      </button>
+                   </div>
                 </motion.div>
-              </motion.div>
+                
+                <button 
+                  onClick={() => setSelectedImage(null)}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-starlight hover:text-white transition-colors"
+                >
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Stats Section */}
-        <section className="px-4 py-20 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-6xl mx-auto bg-gradient-to-r from-white/5 to-white/0 border border-white/10 rounded-3xl p-12"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-              <div>
-                <p className="text-4xl font-bold text-accretion mb-2">{getGalleryCount()}+</p>
-                <p className="text-starlight/60">Total Photos</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-accretion mb-2">6</p>
-                <p className="text-starlight/60">Categories</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-accretion mb-2">50+</p>
-                <p className="text-starlight/60">Events Captured</p>
-              </div>
-            </div>
-          </motion.div>
-        </section>
       </div>
 
       <Footer />
