@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Starfield } from "@/components/ui/Starfield";
 import { motion, Variants } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Instagram, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Send, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { contactInfo as contactInfoConfig, socialLinks as socialLinksConfig, quickLinks, businessHours } from "@/config/contact";
 
