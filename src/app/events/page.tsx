@@ -7,99 +7,7 @@ import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { Calendar, MapPin, Users, ArrowRight, Sparkles } from "lucide-react";
 import { useState } from "react";
-
-const events = [
-  {
-    id: "devfest-2024",
-    title: "DevFest 2024",
-    description: "Join us for an exciting festival of technology, innovation, and learning.",
-    date: "March 15, 2024",
-    location: "Hansraj College",
-    attendees: "500+",
-    category: "Festival",
-    color: "from-blue-500 to-cyan-500",
-    bgColor: "bg-blue-500/10",
-    accent: "text-blue-400",
-    accentBorder: "border-blue-400/30",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop",
-    fullDescription: "DevFest is our flagship event where developers, designers, and innovators come together. Features keynote speeches, workshops, hackathons, and networking sessions."
-  },
-  {
-    id: "ctf-championship",
-    title: "CTF Championship",
-    description: "Capture The Flag competition showcasing cybersecurity skills.",
-    date: "February 10, 2024",
-    location: "Online",
-    attendees: "200+",
-    category: "Competition",
-    color: "from-red-500 to-orange-500",
-    bgColor: "bg-red-500/10",
-    accent: "text-red-400",
-    accentBorder: "border-red-400/30",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop",
-    fullDescription: "A competitive cybersecurity event where teams solve challenges, find vulnerabilities, and demonstrate their hacking skills in a legal and ethical environment."
-  },
-  {
-    id: "web-bootcamp",
-    title: "Web Development Bootcamp",
-    description: "Intensive workshop on modern web technologies and best practices.",
-    date: "January 20, 2024",
-    location: "Hansraj College",
-    attendees: "150+",
-    category: "Workshop",
-    color: "from-purple-500 to-pink-500",
-    bgColor: "bg-purple-500/10",
-    accent: "text-purple-400",
-    accentBorder: "border-purple-400/30",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop",
-    fullDescription: "A comprehensive bootcamp covering frontend frameworks, backend development, APIs, databases, and deployment strategies."
-  },
-  {
-    id: "design-workshop",
-    title: "UI/UX Design Workshop",
-    description: "Learn to create stunning user interfaces and experiences.",
-    date: "February 25, 2024",
-    location: "Hansraj College",
-    attendees: "100+",
-    category: "Workshop",
-    color: "from-pink-500 to-rose-500",
-    bgColor: "bg-pink-500/10",
-    accent: "text-pink-400",
-    accentBorder: "border-pink-400/30",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=300&fit=crop",
-    fullDescription: "Master the principles of user interface and user experience design. Learn prototyping, wireframing, and design tools."
-  },
-  {
-    id: "innovation-summit",
-    title: "Innovation Summit",
-    description: "Connecting innovators, entrepreneurs, and tech enthusiasts.",
-    date: "March 30, 2024",
-    location: "Hansraj College",
-    attendees: "300+",
-    category: "Conference",
-    color: "from-green-500 to-emerald-500",
-    bgColor: "bg-green-500/10",
-    accent: "text-green-400",
-    accentBorder: "border-green-400/30",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop",
-    fullDescription: "A platform for sharing innovative ideas, pitching projects, and networking with like-minded individuals in the tech community."
-  },
-  {
-    id: "coding-challenge",
-    title: "Monthly Coding Challenge",
-    description: "Solve algorithmic problems and showcase your coding prowess.",
-    date: "Every Month",
-    location: "Online",
-    attendees: "250+",
-    category: "Competition",
-    color: "from-yellow-500 to-orange-500",
-    bgColor: "bg-yellow-500/10",
-    accent: "text-yellow-400",
-    accentBorder: "border-yellow-400/30",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop",
-    fullDescription: "A recurring monthly competition where programmers tackle challenging problems, compete for prizes, and improve their algorithmic thinking."
-  }
-];
+import { events } from "@/config/eventConfigs/list";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -164,7 +72,7 @@ export default function EventsPage() {
               animate="visible"
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
             >
-              {events.map((event) => (
+              {events.map((event: any) => (
                 <motion.div
                   key={event.id}
                   variants={itemVariants}
@@ -174,7 +82,7 @@ export default function EventsPage() {
                 >
                   {/* Animated background orb */}
                   <motion.div
-                    className={`absolute -inset-0.5 rounded-2xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300 ${event.bgColor}`}
+                    className="absolute -inset-0.5 rounded-2xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300 bg-accretion/20"
                   />
 
                   {/* Card Container */}
@@ -196,7 +104,7 @@ export default function EventsPage() {
                       
                       {/* Category Badge */}
                       <div className="absolute top-4 right-4">
-                        <span className={`text-xs uppercase tracking-widest font-bold border border-white/20 px-2.5 py-1.5 rounded-md bg-white/5 group-hover:border-white/50 transition-all duration-300 ${event.accent}`}>
+                        <span className="text-xs uppercase tracking-widest font-bold border border-accretion/40 px-2.5 py-1.5 rounded-md bg-white/5 group-hover:border-accretion/80 text-accretion transition-all duration-300">
                           {event.category}
                         </span>
                       </div>
@@ -244,7 +152,7 @@ export default function EventsPage() {
                       initial={{ scaleX: 0 }}
                       whileHover={{ scaleX: 1 }}
                       transition={{ duration: 0.3 }}
-                      className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${event.color} origin-left`}
+                      className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accretion to-orange-500 origin-left"
                     />
 
                     {/* Full card link overlay */}
@@ -256,7 +164,7 @@ export default function EventsPage() {
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
-                    className={`absolute top-0 right-0 w-32 h-32 -mr-16 -mt-16 rounded-full blur-3xl opacity-0 group-hover:opacity-30 ${event.bgColor} transition-opacity duration-300`}
+                    className="absolute top-0 right-0 w-32 h-32 -mr-16 -mt-16 rounded-full blur-3xl opacity-0 group-hover:opacity-30 bg-accretion/20 transition-opacity duration-300"
                   />
                 </motion.div>
               ))}
