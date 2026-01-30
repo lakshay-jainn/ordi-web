@@ -7,119 +7,16 @@ import { motion, Variants, AnimatePresence } from "framer-motion";
 import { useState, useMemo } from "react";
 import { Search, Download, Heart, Share2 } from "lucide-react";
 
-const galleryCategories = [
-  {
-    id: "events",
-    name: "Events",
-    label: "CELEBRATIONS",
-    color: "from-blue-500 to-cyan-500",
-    bgColor: "bg-blue-500/10",
-    accent: "text-blue-400",
-    accentBorder: "border-blue-400/30",
-    count: 24
-  },
-  {
-    id: "workshops",
-    name: "Workshops",
-    label: "LEARNING",
-    color: "from-purple-500 to-pink-500",
-    bgColor: "bg-purple-500/10",
-    accent: "text-purple-400",
-    accentBorder: "border-purple-400/30",
-    count: 18
-  },
-  {
-    id: "hackathon",
-    name: "Hackathon",
-    label: "INNOVATION",
-    color: "from-green-500 to-emerald-500",
-    bgColor: "bg-green-500/10",
-    accent: "text-green-400",
-    accentBorder: "border-green-400/30",
-    count: 32
-  },
-  {
-    id: "team",
-    name: "Team",
-    label: "TOGETHER",
-    color: "from-orange-500 to-red-500",
-    bgColor: "bg-orange-500/10",
-    accent: "text-orange-400",
-    accentBorder: "border-orange-400/30",
-    count: 28
-  },
-  {
-    id: "projects",
-    name: "Projects",
-    label: "CREATION",
-    color: "from-rose-500 to-red-500",
-    bgColor: "bg-rose-500/10",
-    accent: "text-rose-400",
-    accentBorder: "border-rose-400/30",
-    count: 20
-  },
-  {
-    id: "competitions",
-    name: "Competitions",
-    label: "CHALLENGE",
-    color: "from-indigo-500 to-blue-500",
-    bgColor: "bg-indigo-500/10",
-    accent: "text-indigo-400",
-    accentBorder: "border-indigo-400/30",
-    count: 26
-  }
-];
 
-const galleryImages = {
-  events: [
-    { id: 1, src: "https://images.unsplash.com/photo-1540575467063-178f50002c4b?w=500&h=500&fit=crop", title: "Tech Talk 2024", date: "Jan 15, 2024" },
-    { id: 2, src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=500&fit=crop", title: "Developer Meetup", date: "Jan 20, 2024" },
-    { id: 3, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop", title: "Conference 2024", date: "Feb 01, 2024" },
-    { id: 4, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop", title: "Panel Discussion", date: "Feb 10, 2024" },
-    { id: 5, src: "https://images.unsplash.com/photo-1540575467063-178f50002c4b?w=500&h=500&fit=crop", title: "Networking Event", date: "Feb 15, 2024" },
-    { id: 6, src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=500&fit=crop", title: "Community Gathering", date: "Mar 01, 2024" },
-  ],
-  workshops: [
-    { id: 1, src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop", title: "Web Dev Workshop", date: "Jan 22, 2024" },
-    { id: 2, src: "https://images.unsplash.com/photo-1516534775068-bb57e39c1a9d?w=500&h=500&fit=crop", title: "React Masterclass", date: "Feb 05, 2024" },
-    { id: 3, src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop", title: "Python Basics", date: "Feb 12, 2024" },
-    { id: 4, src: "https://images.unsplash.com/photo-1516534775068-bb57e39c1a9d?w=500&h=500&fit=crop", title: "DevOps Training", date: "Feb 20, 2024" },
-    { id: 5, src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop", title: "UI/UX Workshop", date: "Mar 05, 2024" },
-    { id: 6, src: "https://images.unsplash.com/photo-1516534775068-bb57e39c1a9d?w=500&h=500&fit=crop", title: "Mobile Dev Session", date: "Mar 15, 2024" },
-  ],
-  hackathon: [
-    { id: 1, src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop", title: "Hackathon Day 1", date: "Feb 24, 2024" },
-    { id: 2, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop", title: "Coding Challenge", date: "Feb 25, 2024" },
-    { id: 3, src: "https://images.unsplash.com/photo-1540575467063-178f50002c4b?w=500&h=500&fit=crop", title: "Team Collaboration", date: "Feb 25, 2024" },
-    { id: 4, src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=500&fit=crop", title: "Final Presentations", date: "Feb 26, 2024" },
-    { id: 5, src: "https://images.unsplash.com/photo-1516534775068-bb57e39c1a9d?w=500&h=500&fit=crop", title: "Winner Announcement", date: "Feb 26, 2024" },
-    { id: 6, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop", title: "Prize Distribution", date: "Feb 27, 2024" },
-  ],
-  team: [
-    { id: 1, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop", title: "Team Outing", date: "Jan 30, 2024" },
-    { id: 2, src: "https://images.unsplash.com/photo-1540575467063-178f50002c4b?w=500&h=500&fit=crop", title: "Office Moments", date: "Feb 08, 2024" },
-    { id: 3, src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=500&fit=crop", title: "Team Building", date: "Feb 18, 2024" },
-    { id: 4, src: "https://images.unsplash.com/photo-1516534775068-bb57e39c1a9d?w=500&h=500&fit=crop", title: "Department Vibes", date: "Mar 02, 2024" },
-    { id: 5, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop", title: "Casual Meetup", date: "Mar 10, 2024" },
-    { id: 6, src: "https://images.unsplash.com/photo-1540575467063-178f50002c4b?w=500&h=500&fit=crop", title: "Team Celebration", date: "Mar 20, 2024" },
-  ],
-  projects: [
-    { id: 1, src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop", title: "Website Redesign", date: "Jan 2024" },
-    { id: 2, src: "https://images.unsplash.com/photo-1516534775068-bb57e39c1a9d?w=500&h=500&fit=crop", title: "Mobile App Launch", date: "Feb 2024" },
-    { id: 3, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop", title: "Platform Upgrade", date: "Feb 2024" },
-    { id: 4, src: "https://images.unsplash.com/photo-1540575467063-178f50002c4b?w=500&h=500&fit=crop", title: "API Integration", date: "Mar 2024" },
-    { id: 5, src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=500&fit=crop", title: "Dashboard Development", date: "Mar 2024" },
-    { id: 6, src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop", title: "Database Migration", date: "Apr 2024" },
-  ],
-  competitions: [
-    { id: 1, src: "https://images.unsplash.com/photo-1540575467063-178f50002c4b?w=500&h=500&fit=crop", title: "CTF Competition", date: "Feb 10, 2024" },
-    { id: 2, src: "https://images.unsplash.com/photo-1516534775068-bb57e39c1a9d?w=500&h=500&fit=crop", title: "Coding Contest", date: "Feb 17, 2024" },
-    { id: 3, src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=500&fit=crop", title: "Design Challenge", date: "Feb 24, 2024" },
-    { id: 4, src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop", title: "Quiz Night", date: "Mar 08, 2024" },
-    { id: 5, src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop", title: "Speed Coding", date: "Mar 15, 2024" },
-    { id: 6, src: "https://images.unsplash.com/photo-1540575467063-178f50002c4b?w=500&h=500&fit=crop", title: "Bug Bounty Finale", date: "Mar 25, 2024" },
-  ]
-};
+import { galleryCategories, galleryImages } from "@/config/gallery";
+
+function getGalleryCount(category?: string | null): number {
+  if (!category) {
+    // Count all images in all categories
+    return Object.values(galleryImages).reduce((acc, arr) => acc + arr.length, 0);
+  }
+  return (galleryImages[category as keyof typeof galleryImages] || []).length;
+}
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -241,7 +138,7 @@ export default function GalleryPage() {
                   whileTap={{ scale: 0.95 }}
                   className={`relative p-4 rounded-xl border-2 transition-all duration-300 group overflow-hidden ${
                     activeCategory === category.id
-                      ? `${category.bgColor} ${category.accentBorder} bg-opacity-30`
+                      ? "border-accretion/60 bg-accretion/5 bg-opacity-30"
                       : "border-white/10 bg-white/[0.02] hover:bg-white/5"
                   }`}
                 >
@@ -249,17 +146,17 @@ export default function GalleryPage() {
                   {activeCategory === category.id && (
                     <motion.div
                       layoutId="activeCategory"
-                      className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-5`}
+                      className="absolute inset-0 bg-gradient-to-r from-accretion to-orange-500 opacity-5"
                       transition={{ duration: 0.3 }}
                     />
                   )}
 
                   <div className="relative z-10">
-                    <p className={`text-xs font-bold tracking-wider uppercase mb-1 ${category.accent}`}>
+                    <p className="text-xs font-bold tracking-wider uppercase mb-1 text-accretion">
                       {category.label}
                     </p>
                     <h3 className="text-sm md:text-base font-bold text-white">{category.name}</h3>
-                    <p className="text-xs text-starlight/50 mt-1">{category.count} photos</p>
+                    <p className="text-xs text-starlight/50 mt-1">{getGalleryCount(category.id)} photos</p>
                   </div>
                 </motion.button>
               ))}
@@ -418,7 +315,7 @@ export default function GalleryPage() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
               <div>
-                <p className="text-4xl font-bold text-accretion mb-2">156+</p>
+                <p className="text-4xl font-bold text-accretion mb-2">{getGalleryCount()}+</p>
                 <p className="text-starlight/60">Total Photos</p>
               </div>
               <div>
