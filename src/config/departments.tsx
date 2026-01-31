@@ -184,13 +184,13 @@ export const departmentsData: Record<DepartmentId, Department> = {
     ],
     seniorMembers: [],
     members: [
-      { name: "Priyanshi Murari", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Priyanshi+Murari" },
-      { name: "Akarsh Sachdeva", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Akarsh+Sachdeva" },
-      { name: "Arshi Ansari", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Arshi+Ansari" },
-      { name: "Tezas Kalson", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Tezas+Kalson" },
-      { name: "Vedant Sharma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Vedant+Sharma" },
-      { name: "Sumit Mishra", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Sumit+Mishra" },
-      { name: "Harshita Thakur", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Harshita+Thakur" }
+      { name: "Priyanshi Murari", email: "-", linkedin: "-", photo: "/assets/team/dynamics/priyanshi-murari.jpg" },
+      { name: "Akarsh Sachdeva", email: "-", linkedin: "-", photo: "/assets/team/dynamics/akarsh-sachdeva.jpeg" },
+      { name: "Arshi Ansari", email: "-", linkedin: "-", photo: "/assets/team/dynamics/arshi-ansari.jpg" },
+      { name: "Tezas Kalson", email: "-", linkedin: "-", photo: "/assets/team/dynamics/tezas-kalson.jpg" },
+      { name: "Vedant Sharma", email: "-", linkedin: "-", photo: "/assets/team/dynamics/vedant-sharma.jpeg" },
+      { name: "Sumit Mishra", email: "-", linkedin: "-", photo: "/assets/team/dynamics/sumit-mishra.jpg" },
+      { name: "Harshita Thakur", email: "-", linkedin: "-", photo: "/assets/team/dynamics/harshita-thakur.jpg" }
     ]
   }
 };
