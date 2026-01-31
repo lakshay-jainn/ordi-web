@@ -120,14 +120,14 @@ export const departmentsData: Record<DepartmentId, Department> = {
     ],
     seniorMembers: [],
     members: [
-      { name: "Savit Handoo", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Savit+Handoo" },
-      { name: "Sachi Vaishya", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Sachi+Vaishya" },
-      { name: "Krish Sachdeva", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Krish+Sachdeva" },
-      { name: "Salvi Dhar", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Salvi+Dhar" },
-      { name: "Tanshi Wadhwa", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Tanshi+Wadhwa" },
-      { name: "Mohini Pal", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Mohini+Pal" },
-      { name: "Hritik Sharma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Hritik+Sharma" },
-      { name: "Muskan Giri", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Muskan+Giri" }
+      { name: "Savit Handoo", email: "-", linkedin: "-", photo: "/assets/team/organising/savit-handoo.jpg" },
+      { name: "Sachi Vaishya", email: "-", linkedin: "-", photo: "/assets/team/organising/sachi-vaishya.jpg" },
+      { name: "Krish Sachdeva", email: "-", linkedin: "-", photo: "/assets/team/organising/krish-sachdeva.jpg" },
+      { name: "Salvi Dhar", email: "-", linkedin: "-", photo: "/assets/team/organising/salvi-dhar.jpg" },
+      { name: "Tanshi Wadhwa", email: "-", linkedin: "-", photo: "/assets/team/organising/tanshi-wadhwa.jpeg" },
+      { name: "Mohini Pal", email: "-", linkedin: "-", photo: "/assets/team/organising/mohini-pal.jpg" },
+      { name: "Hritik Sharma", email: "-", linkedin: "-", photo: "/assets/team/organising/hritik-sharma.jpg" },
+      { name: "Muskan Giri", email: "-", linkedin: "-", photo: "/assets/team/organising/muskan-giri.jpg" }
     ]
   },
   development: {
