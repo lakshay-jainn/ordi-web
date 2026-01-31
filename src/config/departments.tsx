@@ -89,13 +89,13 @@ export const departmentsData: Record<DepartmentId, Department> = {
       { name: "Shruti Singh", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Shruti+Singh" }
     ],
     members: [
-      { name: "Aditya Vishwakarma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Aditya+Vishwakarma" },
-      { name: "Rishit Sharma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Rishit+Sharma" },
-      { name: "Divya Falia", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Divya+Falia" },
-      { name: "Anusha Gupta", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Anusha+Gupta" },
-      { name: "Mridul Pangtey", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Mridul+Pangtey" },
-      { name: "Kirti", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Kirti" },
-      { name: "Komal Sharma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Komal+Sharma" }
+      { name: "Aditya Vishwakarma", email: "-", linkedin: "-", photo: "/assets/team/editorial/aditya-vishwakarma.jpg" },
+      { name: "Rishit Sharma", email: "-", linkedin: "-", photo: "/assets/team/editorial/rishit-sharma.jpg" },
+      { name: "Divya Falia", email: "-", linkedin: "-", photo: "/assets/team/editorial/divya-falia.jpg" },
+      { name: "Anusha Gupta", email: "-", linkedin: "-", photo: "/assets/team/editorial/anusha-gupta.jpg" },
+      { name: "Mridul Pangtey", email: "-", linkedin: "-", photo: "/assets/team/editorial/mridul-pangtey.jpg" },
+      { name: "Kirti", email: "-", linkedin: "-", photo: "/assets/team/editorial/kirti.jpg" },
+      { name: "Komal Sharma", email: "-", linkedin: "-", photo: "/assets/team/editorial/komal-sharma.jpg" }
     ]
   },
   organising: {
