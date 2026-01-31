@@ -57,7 +57,7 @@ export const departmentsData: Record<DepartmentId, Department> = {
     ],
     members: [
       { name: "Anand Nonia", email: "-", linkedin: "-", photo: "/assets/team/technical/anand-nonia.jpg" },
-      { name: "Nitika Singh", email: "-", linkedin: "-", photo: "/assets/team/technical/nitika-singh.png" },
+      { name: "Nitika Singh", email: "-", linkedin: "-", photo: "/assets/team/technical/nitika-singh.jpg" },
       { name: "Abhay Verma", email: "-", linkedin: "-", photo: "/assets/team/technical/abhay-verma.jpg" },
       { name: "Ishant Kumar Singh", email: "-", linkedin: "-", photo: "/assets/team/technical/ishant-kumar-singh.jpg" },
       { name: "Sneha Yadav", email: "-", linkedin: "-", photo: "/assets/team/technical/sneha-yadav.jpg" },
@@ -124,7 +124,7 @@ export const departmentsData: Record<DepartmentId, Department> = {
       { name: "Sachi Vaishya", email: "-", linkedin: "-", photo: "/assets/team/organising/sachi-vaishya.jpg" },
       { name: "Krish Sachdeva", email: "-", linkedin: "-", photo: "/assets/team/organising/krish-sachdeva.jpg" },
       { name: "Salvi Dhar", email: "-", linkedin: "-", photo: "/assets/team/organising/salvi-dhar.jpg" },
-      { name: "Tanshi Wadhwa", email: "-", linkedin: "-", photo: "/assets/team/organising/tanshi-wadhwa.jpeg" },
+      { name: "Tanshi Wadhwa", email: "-", linkedin: "-", photo: "/assets/team/organising/tanshi-wadhwa.jpg" },
       { name: "Mohini Pal", email: "-", linkedin: "-", photo: "/assets/team/organising/mohini-pal.jpg" },
       { name: "Hritik Sharma", email: "-", linkedin: "-", photo: "/assets/team/organising/hritik-sharma.jpg" },
       { name: "Muskan Giri", email: "-", linkedin: "-", photo: "/assets/team/organising/muskan-giri.jpg" }
@@ -185,10 +185,10 @@ export const departmentsData: Record<DepartmentId, Department> = {
     seniorMembers: [],
     members: [
       { name: "Priyanshi Murari", email: "-", linkedin: "-", photo: "/assets/team/dynamics/priyanshi-murari.jpg" },
-      { name: "Akarsh Sachdeva", email: "-", linkedin: "-", photo: "/assets/team/dynamics/akarsh-sachdeva.jpeg" },
+      { name: "Akarsh Sachdeva", email: "-", linkedin: "-", photo: "/assets/team/dynamics/akarsh-sachdeva.jpg" },
       { name: "Arshi Ansari", email: "-", linkedin: "-", photo: "/assets/team/dynamics/arshi-ansari.jpg" },
       { name: "Tezas Kalson", email: "-", linkedin: "-", photo: "/assets/team/dynamics/tezas-kalson.jpg" },
-      { name: "Vedant Sharma", email: "-", linkedin: "-", photo: "/assets/team/dynamics/vedant-sharma.jpeg" },
+      { name: "Vedant Sharma", email: "-", linkedin: "-", photo: "/assets/team/dynamics/vedant-sharma.jpg" },
       { name: "Sumit Mishra", email: "-", linkedin: "-", photo: "/assets/team/dynamics/sumit-mishra.jpg" },
       { name: "Harshita Thakur", email: "-", linkedin: "-", photo: "/assets/team/dynamics/harshita-thakur.jpg" }
     ]
