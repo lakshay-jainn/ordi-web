@@ -56,13 +56,13 @@ export const departmentsData: Record<DepartmentId, Department> = {
       { name: "Md Jansheen Alam", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Md+Jansheen+Alam" }
     ],
     members: [
-      { name: "Anand Nonia", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Anand+Nonia" },
-      { name: "Nitika Singh", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Nitika+Singh" },
-      { name: "Abhay Verma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Abhay+Verma" },
-      { name: "Ishant Kumar Singh", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Ishant+Kumar+Singh" },
-      { name: "Sneha Yadav", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Sneha+Yadav" },
-      { name: "Akshita Shah", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Akshita+Shah" },
-      { name: "Sanvi Dureja", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Sanvi+Dureja" }
+      { name: "Anand Nonia", email: "-", linkedin: "-", photo: "/assets/team/technical/anand-nonia.jpg" },
+      { name: "Nitika Singh", email: "-", linkedin: "-", photo: "/assets/team/technical/nitika-singh.png" },
+      { name: "Abhay Verma", email: "-", linkedin: "-", photo: "/assets/team/technical/abhay-verma.jpg" },
+      { name: "Ishant Kumar Singh", email: "-", linkedin: "-", photo: "/assets/team/technical/ishant-kumar-singh.jpg" },
+      { name: "Sneha Yadav", email: "-", linkedin: "-", photo: "/assets/team/technical/sneha-yadav.jpg" },
+      { name: "Akshita Shah", email: "-", linkedin: "-", photo: "/assets/team/technical/akshita-shah.jpg" },
+      { name: "Sanvi Dureja", email: "-", linkedin: "-", photo: "/assets/team/technical/sanvi-dureja.jpg" }
     ]
   },
   editorial: {
