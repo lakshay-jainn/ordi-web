@@ -60,10 +60,9 @@ export const departmentsData: Record<DepartmentId, Department> = {
       { name: "Nitika Singh", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Nitika+Singh" },
       { name: "Abhay Verma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Abhay+Verma" },
       { name: "Ishant Kumar Singh", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Ishant+Kumar+Singh" },
-      { name: "Shivek Gupta", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Shivek+Gupta" },
       { name: "Sneha Yadav", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Sneha+Yadav" },
-      { name: "Saanvi Jain", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Saanvi+Jain" },
-      { name: "Akshita Shah", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Akshita+Shah" }
+      { name: "Akshita Shah", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Akshita+Shah" },
+      { name: "Sanvi Dureja", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Sanvi+Dureja" }
     ]
   },
   editorial: {
@@ -93,10 +92,9 @@ export const departmentsData: Record<DepartmentId, Department> = {
       { name: "Aditya Vishwakarma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Aditya+Vishwakarma" },
       { name: "Rishit Sharma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Rishit+Sharma" },
       { name: "Divya Falia", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Divya+Falia" },
-      { name: "SN Om Tripathy", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=SN+Om+Tripathy" },
       { name: "Anusha Gupta", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Anusha+Gupta" },
       { name: "Mridul Pangtey", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Mridul+Pangtey" },
-      { name: "Kirti Dabas", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Kirti+Dabas" },
+      { name: "Kirti", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Kirti" },
       { name: "Komal Sharma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Komal+Sharma" }
     ]
   },
@@ -122,15 +120,12 @@ export const departmentsData: Record<DepartmentId, Department> = {
     ],
     seniorMembers: [],
     members: [
-      { name: "Priyanshi Murari", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Priyanshi+Murari" },
-      { name: "Aditya Rawat", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Aditya+Rawat" },
-      { name: "Akarsh Sachdeva", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Akarsh+Sachdeva" },
-      { name: "Arshi Ansari", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Arshi+Ansari" },
-      { name: "Tezas Kalson", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Tezas+Kalson" },
-      { name: "Vedant Sharma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Vedant+Sharma" },
-      { name: "Sumit Mishra", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Sumit+Mishra" },
-      { name: "Harshita Thakur", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Harshita+Thakur" },
-      { name: "Sanvi Dureja", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Sanvi+Dureja" },
+      { name: "Savit Handoo", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Savit+Handoo" },
+      { name: "Sachi Vaishya", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Sachi+Vaishya" },
+      { name: "Krish Sachdeva", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Krish+Sachdeva" },
+      { name: "Salvi Dhar", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Salvi+Dhar" },
+      { name: "Tanshi Wadhwa", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Tanshi+Wadhwa" },
+      { name: "Mohini Pal", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Mohini+Pal" },
       { name: "Hritik Sharma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Hritik+Sharma" },
       { name: "Muskan Giri", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Muskan+Giri" }
     ]
@@ -189,14 +184,13 @@ export const departmentsData: Record<DepartmentId, Department> = {
     ],
     seniorMembers: [],
     members: [
-      { name: "Savit Handoo", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Savit+Handoo" },
-      { name: "Sachi Vaishya", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Sachi+Vaishya" },
-      { name: "Krish Sachdeva", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Krish+Sachdeva" },
-      { name: "Salvi Dhar", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Salvi+Dhar" },
-      { name: "Anas Ansari", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Anas+Ansari" },
-      { name: "Tanshi Wadhwa", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Tanshi+Wadhwa" },
-      { name: "Dipanshu Puri", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Dipanshu+Puri" },
-      { name: "Mohini Pal", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Mohini+Pal" }
+      { name: "Priyanshi Murari", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Priyanshi+Murari" },
+      { name: "Akarsh Sachdeva", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Akarsh+Sachdeva" },
+      { name: "Arshi Ansari", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Arshi+Ansari" },
+      { name: "Tezas Kalson", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Tezas+Kalson" },
+      { name: "Vedant Sharma", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Vedant+Sharma" },
+      { name: "Sumit Mishra", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Sumit+Mishra" },
+      { name: "Harshita Thakur", email: "-", linkedin: "-", photo: "https://ui-avatars.com/api/?name=Harshita+Thakur" }
     ]
   }
 };
