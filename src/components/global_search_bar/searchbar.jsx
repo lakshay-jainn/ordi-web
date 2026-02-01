@@ -15,7 +15,7 @@ export default function SearchBar(){
 
         if (value.trim()){
             //importing the searchIndex 
-            import ('../data/searchIndex').then(({ searchIndex }) => {
+            import ('./data/searchIndex').then(({ searchIndex }) => {
                 const filtered = searchIndex.filter( item => //creates a new array with only the items that match the search 
                     item.title.toLowerCase().includes(value.toLowerCase()) ||
                     item.keywords.toLowerCase().includes(value.toLowerCase()) || 
