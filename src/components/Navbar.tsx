@@ -4,6 +4,7 @@ import React, { useRef, useState, MouseEvent } from "react";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
+import SearchBar  from "./global_search_bar/searchbar"
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -56,6 +57,11 @@ export function Navbar() {
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-200%] group-hover:animate-shimmer-slide duration-1000" />
         </span>
       </Link>
+
+      {/* Search Bar */}
+      <div className="flex-1 max-w-md">
+        <SearchBar/>
+      </div>
 
       {/* Desktop Links */}
       <div className="hidden md:flex gap-1">

@@ -1,6 +1,7 @@
+'use client'
 //useState tracks things typed in the search bar 
 import { useState } from 'react'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 export default function SearchBar(){
     //setQuery is a function to update the query 
@@ -22,7 +23,7 @@ export default function SearchBar(){
                     item.description.toLowerCase().includes(value.toLowerCase())
                 ); 
 
-                setShowSuggestions(filtered); //updates suggestions with filtered result 
+                setSuggestions(filtered); //updates suggestions with filtered result 
                 setShowSuggestions(true); //shows the suggestions dropdown
             }); 
         } else{
@@ -48,9 +49,10 @@ export default function SearchBar(){
 
 
     return (
-        <div className="search-container" >
+        <div className="relative w-full max-w-2xl mx-auto" >
 
-            <form onSubmit={handleSearch} className="search-bar">
+            <form onSubmit={handleSearch} 
+            className="flex gap-2 bgx-black/30 backdrop-blur-lg border border-white/20 rounded-lg p-2">
 
                 <input
                     type ="text"
@@ -59,28 +61,28 @@ export default function SearchBar(){
                     onBlur={() => setTimeout(() => setShowSuggestions(false), 200)} //when user loses focus, wait 200 milli seconds then hide suggestions. 
                     // the delays lets user to click on a suggestion. 
                     placeholder='Search'
-                    className='search-input'
+                    className='flex-1 px-4 py-2 bg-transparent text-white placeholder-white/50 focus:outline-none'
                 />
 
-                <button type='submit' className="search-button"> {/* triggers handleSearch upon submitting */}
+                <button type='submit' 
+                className="px-6 py-2 bg-white/10 hover:bg-white/20 border border-white/30 rounded-md text-white font-medium transition-all"> {/* triggers handleSearch upon submitting */}
                     Search
                 </button>
             </form>
 
             {showSuggestion && suggestions.length>0 && ( //conditional rendering 
 
-                <div className="suggestions-dropdown">
+                <div className="absolute top-full left-0 right-0 mt-2 bg-black/90 backdrop-blur-lg border border-white/20 rounded-lg overflow-hidden max-h-96 overflow-y-auto z-50 shadow-2xl">
                     {suggestions.map((item, index) => ( //loops through each suggestion creates JSX for it. 
 
                         <div
                             key={index} //helps to track which items where changed  
-                            className="suggestion-Item"
+                            className="p-4 cursor-pointer border-b border-white/10 last:border-b-0 hover:bg-white/10 transition-colors"
                             onClick={() => handleSelectSuggestion(item.path)}
                         >
+                            <strong className='text-white text-lg block mb-1'>{item.title}</strong>
 
-                            <strong>{item.title}</strong>
-
-                            <p>{item.description}</p>
+                            <p className='text-white/70 text-sm'>{item.description}</p>
                         </div>
                     ))}
                 </div>
