@@ -58,11 +58,6 @@ export function Navbar() {
         </span>
       </Link>
 
-      {/* Search Bar */}
-      <div className="flex-1 max-w-md">
-        <SearchBar/>
-      </div>
-
       {/* Desktop Links */}
       <div className="hidden md:flex gap-1">
         {navLinks.map((link) => (
@@ -70,6 +65,11 @@ export function Navbar() {
             {link.name}
           </MagneticLink>
         ))}
+      </div>
+
+      {/* Search Bar */}
+      <div className="flex-1 max-w-md">
+        <SearchBar/>
       </div>
 
       {/* Mobile Menu Button (Placeholder) */}
